@@ -27,7 +27,17 @@ However, for bonus points try to solve it both with recursion and iteration.
 */
 
 function recursivePreserveType(array) {
-    // Your code here
+    return recurse = (...types) => {
+      if (array.length === 0) {
+        return [];
+      }
+      let newArr = [];
+      if (types.includes(typeof array[0])) {
+        newArr.push(array[0]);
+      }
+      array.shift();
+      return newArr.concat(recurse(types));
+    }
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
