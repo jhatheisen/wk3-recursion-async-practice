@@ -11,6 +11,19 @@
 
 function sort(nums) {
     // Your code here
+    if (nums.length === 0) {
+      return [];
+    }
+    let sorted = [];
+    let smallestI = 0;
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] < nums[smallestI]) {
+        smallestI = i;
+      }
+    }
+    sorted.push(nums[smallestI]);
+    nums.splice(smallestI, 1);
+    return sorted.concat(sort(nums));
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
